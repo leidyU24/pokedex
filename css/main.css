@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+
+:root {
+    --clr-black: #1c1c1c;
+    --clr-gray: #ececec;
+    --clr-white: #f7f7f7;
+
+    --type-normal: #A8A878;
+    --type-fire: #cc5c0c;
+    --type-water: #6890F0;
+    --type-grass: #0edb19;
+    --type-electric: #e4f830d8;
+    --type-ice: #98D8D8;
+    --type-fighting: #ca1a11;
+    --type-poison: #A040A0;
+    --type-ground: #E0C068;
+    --type-flying: #A890F0;
+    --type-psychic: #F85888;
+    --type-bug: #A8B820;
+    --type-rock: #B8A038;
+    --type-ghost: #705898;
+    --type-dark: #705848;
+    --type-dragon: #7038F8;
+    --type-steel: #B8B8D0;
+    --type-fairy: #F0B6BC;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: var(--clr-black);
+    font-family: 'Rubik', sans-serif; 
+    
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .search-container input[type="text"] {
+    width: 200px;
+    margin-right: 10px;
+  }
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+/* Aquí todo el CSS extra */
+
+body {
+    min-height: 100vh;
+    background-color: let(--clr-gray);
+    /*#B0C4DE*/
+}
+
+#navbar-pokemon {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logoPokemon {
+    display: flex;
+    justify-content: space-around;
+}
+
+#pokemon-icono {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+
+.hedIconos:hover{
+    background-color: #e7ebf0;
+    border-radius: 100%;
+}
+
+.search_box {
+    display: flex;
+    border-radius: 100px;
+    border: 1px;
+    width: 100%;
+    background-color: #f7f5f5;
+}
+
+.search_box span {
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 0 10px;
+    align-items: center;
+}
+
+.finder {
+    border: none;
+    outline: none;
+    color: #080808;;
+    font-size: 17px;
+    width: 83%;
+    background-color: #f7f5f5;
+    padding: 0 10px;
+}
+
+.search_box:hover {
+    background-color: #e0dcdc;
+}
+.search_box:hover .finder{
+    background-color: #e0dcdc;
+}
+
+.search_box .fa-search {
+    font-size: 15px;
+    color: #aaa;
+}
+
+.search_box .fa-search img {
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+}
+
+
+.nav {
+    display: flex;                      /*para poner de un lado el logo*/
+    flex-direction: column;             /*verlos en columnas*/
+    gap: 1rem;                          /*separación del logo*/
+    align-items: flex-start;            /*para que todo este a la izquierda*/
+    padding-inline: 3rem;
+    margin: 0 auto;
+}
+
+.nav-list {
+    display: flex;                          /*los elementos de la lista estarán uno al lado del otro*/
+    align-items: center;                    /*centrado vertical*/
+    flex-wrap: wrap;                        /*si no caben se desplazan hacía abajo*/
+    gap: 0.9rem;
+}
+
+.btn-header {
+    background-color: let(--clr-gray);
+    padding: 0.6rem;
+    border-radius: 100vmax;
+    cursor: pointer;                        /*pone la mano en el cursor al pasar por los botones*/
+    text-transform: uppercase;
+    font-weight: 700;                       /*maneja el grosor de las letras*/
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .35);
+    transition: .2s;
+}
+
+.btn-header:hover {
+    transform: scale(1.1);                  /*esto da el efecto de agrandamiento del boton al pasar el cursor*/
+    box-shadow: 0 0 2rem rgba(0, 0, 0, .25);
+}
+
+/*Configuración de valores par darle algo de responsive*/
+main {
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+
+.all-pokemon {
+    display: grid;                          /*Creación de arreglo para ver las tarjetas de info de los pokemon*/
+    grid-template-columns: 1fr;             /*el 1fr  repetido implica 2 columnas*/
+    gap: 1rem;
+}
+
+@media screen and (min-width: 475px) {
+    .all-pokemon {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .all-pokemon {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+
+.pokemon {
+    border-radius: 1rem;
+    background-color: let(--clr-white);
+    box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, .25);
+    padding-block: 1rem;
+    text-transform: uppercase;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+ .pokemon-id-back{                          /* position: absolute; */
+    top: 1rem;
+ }
+
+ .pokemon-image {
+    padding-inline: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pokemon-image img {
+    width: 100%;                            /*para que no sobresalga*/
+    max-width: 8rem;                        /*controlo el tamaña del pokemon*/
+}
+
+.pokemon-info {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-inline: 1rem;
+    align-items: center;
+    text-align: center;
+}
+
+.name-container {
+    display: flex;
+    align-items: center;
+    column-gap: .5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pokemon-id {
+    background-color: var(--clr-gray);
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+    font-size: .75rem;
+    font-weight: 500;
+}
+
+.pokemon-nombre {
+    font-size: 1.4rem;
+}
+
+.pokemon-tipos {
+    display: flex;                      /*tarjetas uno junto al otro*/
+    gap: .5rem;                         
+    font-size: .75rem;
+    font-weight: 500;
+    flex-wrap: wrap;                    /*para ubicar las tarjetas uno debajo del otro*/
+    justify-content: center;
+}
+
+.tipo {
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+}
+
+.pokemon-stats {
+    display: flex;
+    gap: 1rem;
+    font-size: .85rem;
+}
+
+.stat {
+    background-color: var(--clr-gray);
+    padding: .25rem .5rem;
+    border-radius: 100vmax;
+}
+
+
+/* Aquí comienzan los colores de botones según tipo */
+.normal {
+    background-color: var(--type-normal);
+    color: var(--clr-black);
+}
+
+.fire {
+    background-color: var(--type-fire);
+    color: var(--clr-black);
+}
+
+.water {
+    background-color: var(--type-water);
+    color: var(--clr-white);
+}
+
+.grass {
+    background-color: var(--type-grass);
+    color: var(--clr-black);
+}
+
+.electric {
+    background-color: var(--type-electric);
+    color: var(--clr-black);
+}
+
+.ice {
+    background-color: var(--type-ice);
+    color: var(--clr-black);
+}
+
+.fighting {
+    background-color: var(--type-fighting);
+    color: var(--clr-white);
+}
+
+.poison {
+    background-color: var(--type-poison);
+    color: var(--clr-white);
+}
+
+.ground {
+    background-color: var(--type-ground);
+    color: var(--clr-black);
+}
+
+.flying {
+    background-color: var(--type-flying);
+    color: var(--clr-black);
+}
+
+.psychic {
+    background-color: var(--type-psychic);
+    color: var(--clr-black);
+}
+
+.bug {
+    background-color: var(--type-bug);
+    color: var(--clr-black);
+}
+
+.rock {
+    background-color: var(--type-rock);
+    color: var(--clr-black);
+}
+
+.ghost {
+    background-color: var(--type-ghost);
+    color: var(--clr-white);
+}
+
+.dark {
+    background-color: var(--type-dark);
+    color: var(--clr-white);
+}
+
+.dragon {
+    background-color: var(--type-dragon);
+    color: var(--clr-white);
+}
+
+.steel {
+    background-color: var(--type-steel);
+    color: var(--clr-black);
+}
+
+.fairy {
+    background-color: var(--type-fairy);
+    color: var(--clr-black);
+}
